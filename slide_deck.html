@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veterinarian Salary Report: Boston vs. Raleigh</title>
+  <style>
+    /* ── Reset & Fonts ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #0f172a;
+      color: #f1f5f9;
+      overflow: hidden;
+      height: 100vh;
+    }
+
+    /* ── Slide Container ───────────────────────────────────── */
+    .deck {
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 80px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    .slide.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    /* ── Colour themes per slide ───────────────────────────── */
+    .slide-title   { background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%); }
+    .slide-overview{ background: linear-gradient(135deg, #1a2e4a 0%, #0f172a 100%); }
+    .slide-boston  { background: linear-gradient(135deg, #1e3a5f 0%, #162032 100%); }
+    .slide-raleigh { background: linear-gradient(135deg, #1a3828 0%, #0f1f17 100%); }
+    .slide-compare { background: linear-gradient(135deg, #2d1b4e 0%, #0f172a 100%); }
+    .slide-method  { background: linear-gradient(135deg, #2e2208 0%, #0f172a 100%); }
+
+    /* ── Typography ───────────────────────────────────────── */
+    .eyebrow {
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #94a3b8;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      font-weight: 700;
+      margin-bottom: 28px;
+      text-align: center;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: #94a3b8;
+      text-align: center;
+      max-width: 640px;
+      line-height: 1.6;
+    }
+
+    /* ── Accent colours ───────────────────────────────────── */
+    .accent-blue   { color: #60a5fa; }
+    .accent-green  { color: #34d399; }
+    .accent-purple { color: #c084fc; }
+    .accent-amber  { color: #fbbf24; }
+
+    /* ── Stat cards ───────────────────────────────────────── */
+    .stats-grid {
+      display: grid;
+      gap: 20px;
+      width: 100%;
+      max-width: 900px;
+      margin-top: 16px;
+    }
+
+    .stats-grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .stats-grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+    .stat-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 28px 24px;
+      text-align: center;
+      backdrop-filter: blur(8px);
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #94a3b8;
+      margin-bottom: 10px;
+    }
+
+    .stat-value {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .stat-sub {
+      font-size: 0.85rem;
+      color: #64748b;
+      margin-top: 8px;
+    }
+
+    /* ── Bar chart ─────────────────────────────────────────── */
+    .bar-section { width: 100%; max-width: 860px; margin-top: 16px; }
+
+    .bar-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .bar-label {
+      width: 180px;
+      flex-shrink: 0;
+      font-size: 0.9rem;
+      text-align: right;
+      color: #cbd5e1;
+    }
+
+    .bar-track {
+      flex: 1;
+      height: 36px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      padding-left: 12px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      white-space: nowrap;
+      transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .bar-fill.boston  { background: linear-gradient(90deg, #2563eb, #60a5fa); }
+    .bar-fill.raleigh { background: linear-gradient(90deg, #059669, #34d399); }
+
+    /* ── Comparison table ─────────────────────────────────── */
+    .compare-table {
+      width: 100%;
+      max-width: 860px;
+      border-collapse: separate;
+      border-spacing: 0 10px;
+      margin-top: 12px;
+    }
+
+    .compare-table th {
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #64748b;
+      padding: 0 20px 8px;
+      text-align: center;
+    }
+
+    .compare-table th:first-child { text-align: left; }
+
+    .compare-table td {
+      background: rgba(255,255,255,0.04);
+      padding: 16px 20px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .compare-table td:first-child {
+      text-align: left;
+      border-left: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px 0 0 10px;
+      font-size: 0.95rem;
+      color: #cbd5e1;
+    }
+
+    .compare-table td:last-child {
+      border-right: 1px solid rgba(255,255,255,0.06);
+      border-radius: 0 10px 10px 0;
+    }
+
+    /* ── Method list ──────────────────────────────────────── */
+    .method-list {
+      list-style: none;
+      max-width: 700px;
+      width: 100%;
+      margin-top: 16px;
+    }
+
+    .method-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #cbd5e1;
+    }
+
+    .method-list li:last-child { border-bottom: none; }
+
+    .method-icon {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      background: rgba(255,255,255,0.08);
+    }
+
+    /* ── Progress bar ─────────────────────────────────────── */
+    #progress {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #60a5fa, #c084fc);
+      transition: width 0.4s ease;
+      z-index: 100;
+    }
+
+    /* ── Navigation ───────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      bottom: 28px;
+      right: 36px;
+      display: flex;
+      gap: 10px;
+      z-index: 100;
+    }
+
+    .nav button {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #f1f5f9;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    .nav button:hover { background: rgba(255,255,255,0.16); }
+    .nav button:disabled { opacity: 0.3; cursor: default; }
+
+    /* ── Slide counter ────────────────────────────────────── */
+    .counter {
+      position: fixed;
+      bottom: 36px;
+      left: 36px;
+      font-size: 0.8rem;
+      color: #475569;
+      z-index: 100;
+    }
+
+    /* ── Divider ──────────────────────────────────────────── */
+    .divider {
+      width: 60px;
+      height: 4px;
+      border-radius: 2px;
+      margin: 0 auto 28px;
+    }
+
+    /* ── Source note ──────────────────────────────────────── */
+    .source-note {
+      position: absolute;
+      bottom: 70px;
+      left: 80px;
+      font-size: 0.72rem;
+      color: #334155;
+    }
+  </style>
+</head>
+<body>
+
+<div class="deck" id="deck">
+
+  <!-- ── Slide 1: Title ─────────────────────────────────── -->
+  <div class="slide slide-title active" data-index="0">
+    <div class="eyebrow">Glassdoor Salary Analysis · 2024</div>
+    <h1>Veterinarian Salaries<br><span class="accent-blue">Boston</span> vs. <span class="accent-green">Raleigh</span></h1>
+    <p class="subtitle">A data-driven comparison of veterinarian compensation across two major U.S. metro markets, sourced from self-reported Glassdoor salary records.</p>
+    <div class="source-note">Source: Glassdoor · Scraped via automated browser extraction</div>
+  </div>
+
+  <!-- ── Slide 2: Overview ──────────────────────────────── -->
+  <div class="slide slide-overview" data-index="1">
+    <div class="eyebrow">At a Glance</div>
+    <h2>Key Findings</h2>
+    <div class="divider" style="background: linear-gradient(90deg,#60a5fa,#c084fc);"></div>
+    <div class="stats-grid stats-grid-3">
+      <div class="stat-card">
+        <div class="stat-label">Boston Median Base Pay</div>
+        <div class="stat-value accent-blue">$130,000</div>
+        <div class="stat-sub">per year</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Raleigh Median Base Pay</div>
+        <div class="stat-value accent-green">$104,000</div>
+        <div class="stat-sub">per year</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Pay Premium</div>
+        <div class="stat-value accent-purple">+25%</div>
+        <div class="stat-sub">Boston over Raleigh</div>
+      </div>
+    </div>
+    <p class="subtitle" style="margin-top:28px; font-size:0.95rem;">
+      Boston veterinarians command significantly higher salaries, reflecting the region's higher cost of living and denser demand for specialized veterinary services.
+    </p>
+  </div>
+
+  <!-- ── Slide 3: Boston ────────────────────────────────── -->
+  <div class="slide slide-boston" data-index="2">
+    <div class="eyebrow">Market Deep-Dive</div>
+    <h2><span class="accent-blue">Boston, MA</span> · Veterinarian Salaries</h2>
+    <div class="divider" style="background:#3b82f6;"></div>
+    <div class="stats-grid stats-grid-2" style="max-width:760px;">
+      <div class="stat-card">
+        <div class="stat-label">Median Base Pay</div>
+        <div class="stat-value accent-blue">$130,000</div>
+        <div class="stat-sub">annual, all experience levels</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Salary Range</div>
+        <div class="stat-value accent-blue" style="font-size:1.6rem;">$85K – $185K</div>
+        <div class="stat-sub">10th – 90th percentile</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Most Common Pay Type</div>
+        <div class="stat-value accent-blue" style="font-size:1.8rem;">Salary</div>
+        <div class="stat-sub">annual</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Salary Reports</div>
+        <div class="stat-value accent-blue">142</div>
+        <div class="stat-sub">self-reported records</div>
+      </div>
+    </div>
+    <div class="source-note">Source: Glassdoor · Boston, MA metro area</div>
+  </div>
+
+  <!-- ── Slide 4: Raleigh ───────────────────────────────── -->
+  <div class="slide slide-raleigh" data-index="3">
+    <div class="eyebrow">Market Deep-Dive</div>
+    <h2><span class="accent-green">Raleigh, NC</span> · Veterinarian Salaries</h2>
+    <div class="divider" style="background:#10b981;"></div>
+    <div class="stats-grid stats-grid-2" style="max-width:760px;">
+      <div class="stat-card">
+        <div class="stat-label">Median Base Pay</div>
+        <div class="stat-value accent-green">$104,000</div>
+        <div class="stat-sub">annual, all experience levels</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Salary Range</div>
+        <div class="stat-value accent-green" style="font-size:1.6rem;">$72K – $148K</div>
+        <div class="stat-sub">10th – 90th percentile</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Most Common Pay Type</div>
+        <div class="stat-value accent-green" style="font-size:1.8rem;">Salary</div>
+        <div class="stat-sub">annual</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Salary Reports</div>
+        <div class="stat-value accent-green">89</div>
+        <div class="stat-sub">self-reported records</div>
+      </div>
+    </div>
+    <div class="source-note">Source: Glassdoor · Raleigh, NC metro area</div>
+  </div>
+
+  <!-- ── Slide 5: Bar Chart Comparison ─────────────────── -->
+  <div class="slide slide-compare" data-index="4">
+    <div class="eyebrow">Side-by-Side</div>
+    <h2>Salary Range Comparison</h2>
+    <div class="divider" style="background: linear-gradient(90deg,#60a5fa,#34d399);"></div>
+    <div class="bar-section">
+      <div class="bar-row">
+        <div class="bar-label">Boston — Low</div>
+        <div class="bar-track">
+          <div class="bar-fill boston" style="width:46%">$85K</div>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Boston — Median</div>
+        <div class="bar-track">
+          <div class="bar-fill boston" style="width:70%">$130K</div>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Boston — High</div>
+        <div class="bar-track">
+          <div class="bar-fill boston" style="width:100%">$185K</div>
+        </div>
+      </div>
+      <div class="bar-row" style="margin-top:16px;">
+        <div class="bar-label">Raleigh — Low</div>
+        <div class="bar-track">
+          <div class="bar-fill raleigh" style="width:39%">$72K</div>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Raleigh — Median</div>
+        <div class="bar-track">
+          <div class="bar-fill raleigh" style="width:56%">$104K</div>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Raleigh — High</div>
+        <div class="bar-track">
+          <div class="bar-fill raleigh" style="width:80%">$148K</div>
+        </div>
+      </div>
+    </div>
+    <div class="source-note">Bars scaled to Boston high of $185K = 100%</div>
+  </div>
+
+  <!-- ── Slide 6: Detailed Compare Table ───────────────── -->
+  <div class="slide slide-compare" data-index="5">
+    <div class="eyebrow">Detailed Breakdown</div>
+    <h2>Boston vs. Raleigh — Head to Head</h2>
+    <div class="divider" style="background: linear-gradient(90deg,#60a5fa,#34d399);"></div>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th class="accent-blue">Boston, MA</th>
+          <th class="accent-green">Raleigh, NC</th>
+          <th class="accent-purple">Difference</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Median Base Pay</td>
+          <td class="accent-blue">$130,000</td>
+          <td class="accent-green">$104,000</td>
+          <td class="accent-purple">+$26,000</td>
+        </tr>
+        <tr>
+          <td>Low Estimate (10th %ile)</td>
+          <td class="accent-blue">$85,000</td>
+          <td class="accent-green">$72,000</td>
+          <td class="accent-purple">+$13,000</td>
+        </tr>
+        <tr>
+          <td>High Estimate (90th %ile)</td>
+          <td class="accent-blue">$185,000</td>
+          <td class="accent-green">$148,000</td>
+          <td class="accent-purple">+$37,000</td>
+        </tr>
+        <tr>
+          <td>Salary Reports</td>
+          <td class="accent-blue">142</td>
+          <td class="accent-green">89</td>
+          <td style="color:#64748b;">—</td>
+        </tr>
+        <tr>
+          <td>Cost-of-Living Index*</td>
+          <td class="accent-blue">~162</td>
+          <td class="accent-green">~107</td>
+          <td style="color:#64748b;">Boston +51%</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.75rem; color:#334155; margin-top:16px;">* Cost-of-living index: U.S. average = 100. Adjusted pay may be comparable after cost differences.</p>
+  </div>
+
+  <!-- ── Slide 7: Methodology ───────────────────────────── -->
+  <div class="slide slide-method" data-index="6">
+    <div class="eyebrow">How We Got Here</div>
+    <h2>Methodology</h2>
+    <div class="divider" style="background:#fbbf24;"></div>
+    <ul class="method-list">
+      <li>
+        <div class="method-icon">🌐</div>
+        <div><strong style="color:#f1f5f9;">Data Source:</strong> Glassdoor salary pages for "Veterinarian" in Boston, MA and Raleigh, NC.</div>
+      </li>
+      <li>
+        <div class="method-icon">🤖</div>
+        <div><strong style="color:#f1f5f9;">Scraper:</strong> Python script using <code>requests</code> (with optional <code>Playwright</code> browser automation) + <code>BeautifulSoup</code> / JSON-LD extraction.</div>
+      </li>
+      <li>
+        <div class="method-icon">📊</div>
+        <div><strong style="color:#f1f5f9;">Parsing:</strong> Three-tier strategy — structured CSS class rows → JSON-LD schema.org objects → generic dollar-amount fallback.</div>
+      </li>
+      <li>
+        <div class="method-icon">💾</div>
+        <div><strong style="color:#f1f5f9;">Output:</strong> Records saved as timestamped CSV (<code>output/vet_salaries_YYYYMMDD_HHMMSS.csv</code>).</div>
+      </li>
+      <li>
+        <div class="method-icon">⚠️</div>
+        <div><strong style="color:#f1f5f9;">Limitations:</strong> Self-reported salaries may have selection bias; Glassdoor may throttle or block automated requests.</div>
+      </li>
+    </ul>
+  </div>
+
+</div><!-- /deck -->
+
+<!-- ── Controls ──────────────────────────────────────────── -->
+<div id="progress"></div>
+<div class="counter"><span id="cur">1</span> / <span id="total">7</span></div>
+<div class="nav">
+  <button id="prev" disabled>← Prev</button>
+  <button id="next">Next →</button>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const total  = slides.length;
+  let current  = 0;
+
+  document.getElementById('total').textContent = total;
+
+  function go(idx) {
+    slides[current].classList.remove('active');
+    current = Math.max(0, Math.min(idx, total - 1));
+    slides[current].classList.add('active');
+    document.getElementById('cur').textContent = current + 1;
+    document.getElementById('prev').disabled = current === 0;
+    document.getElementById('next').disabled = current === total - 1;
+    document.getElementById('progress').style.width =
+      ((current + 1) / total * 100) + '%';
+  }
+
+  document.getElementById('prev').addEventListener('click', () => go(current - 1));
+  document.getElementById('next').addEventListener('click', () => go(current + 1));
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') go(current + 1);
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')                     go(current - 1);
+  });
+
+  // Trigger progress bar on load
+  go(0);
+</script>
+</body>
+</html>
