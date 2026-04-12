@@ -455,6 +455,25 @@ def cmd_export(args: argparse.Namespace, dm: DataManager) -> None:
 
 
 # ---------------------------------------------------------------------------
+# report
+# ---------------------------------------------------------------------------
+
+def cmd_report(args: argparse.Namespace, dm: DataManager) -> None:
+    from cheese_max.reporter import generate
+    output = Path(args.output) if args.output else None
+    console.print(f"[cyan]Generating report for season {args.season}…[/cyan]")
+    path = generate(dm, season=args.season, output_path=output)
+    regattas = dm.get_confirmed_regattas(season=args.season)
+    races = dm.get_confirmed_races(season=args.season)
+    results_count = sum(len(r.results) for r in races)
+    console.print(
+        f"[green]Report written:[/green] {path}\n"
+        f"  {len(regattas)} regattas · {len(races)} races · {results_count} results"
+    )
+    console.print(f"[dim]Open with:  open {path}[/dim]")
+
+
+# ---------------------------------------------------------------------------
 # teams
 # ---------------------------------------------------------------------------
 
@@ -527,6 +546,12 @@ def _build_parser() -> argparse.ArgumentParser:
     p_export.add_argument("--class", dest="boat_class", required=True)
     p_export.add_argument("--output", default=None, help="Output file path")
 
+    # --- report ---
+    p_report = sub.add_parser("report", help="Generate self-contained HTML report")
+    p_report.add_argument("--season", type=int, required=True, help="Season year (e.g. 2026)")
+    p_report.add_argument("--output", default=None,
+                          help="Output file path (default: cheese_max_report_{season}.html)")
+
     # --- teams ---
     sub.add_parser("teams", help="List all registered teams")
 
@@ -554,6 +579,7 @@ def main() -> None:
         "review": cmd_review,
         "rank": cmd_rank,
         "export": cmd_export,
+        "report": cmd_report,
         "teams": cmd_teams,
     }
 
