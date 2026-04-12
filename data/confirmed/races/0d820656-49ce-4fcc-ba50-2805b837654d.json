@@ -1,0 +1,108 @@
+{
+  "version": "1.0",
+  "id": "0d820656-49ce-4fcc-ba50-2805b837654d",
+  "regatta_id": "6d0fa48e-1a15-4ae9-a26c-74f39d9030f8",
+  "boat_class": "V1",
+  "event_type": "sprint",
+  "race_name": "Varsity Eight Grand Final",
+  "staged": false,
+  "rejected": false,
+  "results": [
+    {
+      "id": "ab417a2a-160d-4260-9e4f-f8e13f5f6cb9",
+      "team": "HVD",
+      "finish_time_seconds": 358.2,
+      "lane": null,
+      "placement": 1,
+      "margin_to_winner_seconds": 0.0,
+      "verified": true,
+      "dnf": false,
+      "dns": false,
+      "notes": ""
+    },
+    {
+      "id": "061aa309-75bb-40df-9a4b-901ad333f08f",
+      "team": "YLE",
+      "finish_time_seconds": 361.4,
+      "lane": null,
+      "placement": 2,
+      "margin_to_winner_seconds": 3.2,
+      "verified": true,
+      "dnf": false,
+      "dns": false,
+      "notes": ""
+    },
+    {
+      "id": "24852558-2e4d-425b-b67a-3425dcb33bb8",
+      "team": "PRI",
+      "finish_time_seconds": 363.0,
+      "lane": null,
+      "placement": 3,
+      "margin_to_winner_seconds": 4.8,
+      "verified": true,
+      "dnf": false,
+      "dns": false,
+      "notes": ""
+    },
+    {
+      "id": "0adfa911-6a91-4493-aa78-9a6cc7bd2ecc",
+      "team": "DAR",
+      "finish_time_seconds": 365.5,
+      "lane": null,
+      "placement": 4,
+      "margin_to_winner_seconds": 7.3,
+      "verified": true,
+      "dnf": false,
+      "dns": false,
+      "notes": ""
+    },
+    {
+      "id": "4d9866c8-d0e1-4a28-95cb-dcf4f29a8dec",
+      "team": "COR",
+      "finish_time_seconds": 368.1,
+      "lane": null,
+      "placement": 5,
+      "margin_to_winner_seconds": 9.9,
+      "verified": true,
+      "dnf": false,
+      "dns": false,
+      "notes": ""
+    },
+    {
+      "id": "2cccb3e6-62c8-4771-b48b-c4cea155b707",
+      "team": "BRN",
+      "finish_time_seconds": 371.0,
+      "lane": null,
+      "placement": 6,
+      "margin_to_winner_seconds": 12.8,
+      "verified": true,
+      "dnf": false,
+      "dns": false,
+      "notes": ""
+    },
+    {
+      "id": "2e8120d5-cc62-442e-8201-17f7ad5cb9b2",
+      "team": "COL",
+      "finish_time_seconds": 374.2,
+      "lane": null,
+      "placement": 7,
+      "margin_to_winner_seconds": 16.0,
+      "verified": true,
+      "dnf": false,
+      "dns": false,
+      "notes": ""
+    },
+    {
+      "id": "7c927f4a-8bc1-4bb5-8b52-79165326a021",
+      "team": "UPE",
+      "finish_time_seconds": 377.9,
+      "lane": null,
+      "placement": 8,
+      "margin_to_winner_seconds": 19.7,
+      "verified": true,
+      "dnf": false,
+      "dns": false,
+      "notes": ""
+    }
+  ]
+}

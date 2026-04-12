@@ -1,0 +1,96 @@
+{
+  "version": "1.0",
+  "id": "00601b77-7951-496f-b86c-6e6218c40556",
+  "regatta_id": "6d0fa48e-1a15-4ae9-a26c-74f39d9030f8",
+  "boat_class": "LW1",
+  "event_type": "sprint",
+  "race_name": "Lightweight Varsity Eight Grand Final",
+  "staged": false,
+  "rejected": false,
+  "results": [
+    {
+      "id": "f5ace14e-9cb9-487a-924e-b5af0f985157",
+      "team": "HVD-LW",
+      "finish_time_seconds": 370.1,
+      "lane": null,
+      "placement": 1,
+      "margin_to_winner_seconds": 0.0,
+      "verified": true,
+      "dnf": false,
+      "dns": false,
+      "notes": ""
+    },
+    {
+      "id": "99fb25a8-3119-4731-b76d-e6c37640d60e",
+      "team": "YLE-LW",
+      "finish_time_seconds": 372.4,
+      "lane": null,
+      "placement": 2,
+      "margin_to_winner_seconds": 2.3,
+      "verified": true,
+      "dnf": false,
+      "dns": false,
+      "notes": ""
+    },
+    {
+      "id": "d613f895-b326-4a3b-b459-c870ba233f1a",
+      "team": "MIT-LW",
+      "finish_time_seconds": 374.0,
+      "lane": null,
+      "placement": 3,
+      "margin_to_winner_seconds": 3.9,
+      "verified": true,
+      "dnf": false,
+      "dns": false,
+      "notes": ""
+    },
+    {
+      "id": "e17adf99-f223-42dd-8782-2116c36473f3",
+      "team": "PRI-LW",
+      "finish_time_seconds": 375.5,
+      "lane": null,
+      "placement": 4,
+      "margin_to_winner_seconds": 5.4,
+      "verified": true,
+      "dnf": false,
+      "dns": false,
+      "notes": ""
+    },
+    {
+      "id": "f0f238ee-ac88-440b-aa24-9b9759e09f06",
+      "team": "COL-LW",
+      "finish_time_seconds": 377.8,
+      "lane": null,
+      "placement": 5,
+      "margin_to_winner_seconds": 7.7,
+      "verified": true,
+      "dnf": false,
+      "dns": false,
+      "notes": ""
+    },
+    {
+      "id": "24b5bc1d-118d-49d0-8a8d-09105b0d11a9",
+      "team": "NAVY-LW",
+      "finish_time_seconds": 379.2,
+      "lane": null,
+      "placement": 6,
+      "margin_to_winner_seconds": 9.1,
+      "verified": true,
+      "dnf": false,
+      "dns": false,
+      "notes": ""
+    },
+    {
+      "id": "86d3ba02-fdc4-47d0-9be2-c4be55423683",
+      "team": "DAR-LW",
+      "finish_time_seconds": 381.0,
+      "lane": null,
+      "placement": 7,
+      "margin_to_winner_seconds": 10.9,
+      "verified": true,
+      "dnf": false,
+      "dns": false,
+      "notes": ""
+    }
+  ]
+}

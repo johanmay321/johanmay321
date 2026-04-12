@@ -1,0 +1,82 @@
+{
+  "version": "1.0",
+  "season": 2026,
+  "boat_class": "LW1",
+  "num_races": 1,
+  "num_teams": 7,
+  "config": {
+    "normalize_margins": true,
+    "discount_large_gaps": false,
+    "gap_threshold_pct": 5.0,
+    "gap_threshold_seconds": 5.0,
+    "gap_discount_factor": 0.2,
+    "discount_bad_conditions": false,
+    "min_races_threshold": 3,
+    "reference_time_seconds": 335.0
+  },
+  "rankings": [
+    {
+      "rank": 1,
+      "team": "HVD-LW",
+      "rating": 1.517,
+      "rating_at_ref_seconds": 5.08,
+      "races": 1,
+      "low_sample": true,
+      "note": "Fewer than 3 races \u2014 rating unreliable"
+    },
+    {
+      "rank": 2,
+      "team": "YLE-LW",
+      "rating": 0.8894,
+      "rating_at_ref_seconds": 2.98,
+      "races": 1,
+      "low_sample": true,
+      "note": "Fewer than 3 races \u2014 rating unreliable"
+    },
+    {
+      "rank": 3,
+      "team": "MIT-LW",
+      "rating": 0.4565,
+      "rating_at_ref_seconds": 1.53,
+      "races": 1,
+      "low_sample": true,
+      "note": "Fewer than 3 races \u2014 rating unreliable"
+    },
+    {
+      "rank": 4,
+      "team": "PRI-LW",
+      "rating": 0.0529,
+      "rating_at_ref_seconds": 0.18,
+      "races": 1,
+      "low_sample": true,
+      "note": "Fewer than 3 races \u2014 rating unreliable"
+    },
+    {
+      "rank": 5,
+      "team": "COL-LW",
+      "rating": -0.5631,
+      "rating_at_ref_seconds": -1.89,
+      "races": 1,
+      "low_sample": true,
+      "note": "Fewer than 3 races \u2014 rating unreliable"
+    },
+    {
+      "rank": 6,
+      "team": "NAVY-LW",
+      "rating": -0.9366,
+      "rating_at_ref_seconds": -3.14,
+      "races": 1,
+      "low_sample": true,
+      "note": "Fewer than 3 races \u2014 rating unreliable"
+    },
+    {
+      "rank": 7,
+      "team": "DAR-LW",
+      "rating": -1.4161,
+      "rating_at_ref_seconds": -4.74,
+      "races": 1,
+      "low_sample": true,
+      "note": "Fewer than 3 races \u2014 rating unreliable"
+    }
+  ]
+}
