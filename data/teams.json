@@ -1,0 +1,237 @@
+{
+  "version": "1.0",
+  "teams": [
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440001",
+      "name": "Harvard University",
+      "abbreviation": "HVD",
+      "conference": "EARC",
+      "website": "https://gocrimson.com/sports/mens-rowing",
+      "aliases": ["Harvard", "Harvard University", "Harvard Crimson", "HAR"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440002",
+      "name": "Yale University",
+      "abbreviation": "YLE",
+      "conference": "EARC",
+      "website": "https://yalebulldogs.com/sports/mens-rowing",
+      "aliases": ["Yale", "Yale University", "Yale Bulldogs", "YAL"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440003",
+      "name": "Princeton University",
+      "abbreviation": "PRI",
+      "conference": "EARC",
+      "website": "https://goprincetontigers.com/sports/mens-rowing",
+      "aliases": ["Princeton", "Princeton University", "Princeton Tigers", "PRIN"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440004",
+      "name": "University of Pennsylvania",
+      "abbreviation": "UPE",
+      "conference": "EARC",
+      "website": "https://pennathletics.com/sports/mens-crew",
+      "aliases": ["Penn", "UPenn", "University of Pennsylvania", "Pennsylvania", "Penn Quakers", "PENN"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440005",
+      "name": "Dartmouth College",
+      "abbreviation": "DAR",
+      "conference": "EARC",
+      "website": "https://dartmouthsports.com/sports/rowing",
+      "aliases": ["Dartmouth", "Dartmouth College", "Dartmouth Big Green", "DART"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440006",
+      "name": "Columbia University",
+      "abbreviation": "COL",
+      "conference": "EARC",
+      "website": "https://gocolumbialions.com/sports/mens-rowing",
+      "aliases": ["Columbia", "Columbia University", "Columbia Lions", "COLU"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440007",
+      "name": "Cornell University",
+      "abbreviation": "COR",
+      "conference": "EARC",
+      "website": "https://cornellbigred.com/sports/mens-rowing",
+      "aliases": ["Cornell", "Cornell University", "Cornell Big Red", "CORN"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440008",
+      "name": "Brown University",
+      "abbreviation": "BRN",
+      "conference": "EARC",
+      "website": "https://brownbears.com/sports/mens-rowing",
+      "aliases": ["Brown", "Brown University", "Brown Bears", "BROW"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440009",
+      "name": "University of Virginia",
+      "abbreviation": "UVA",
+      "conference": "IRA",
+      "website": "https://virginiasports.com/sports/mens-rowing",
+      "aliases": ["Virginia", "UVA", "University of Virginia", "Virginia Cavaliers"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440010",
+      "name": "University of Washington",
+      "abbreviation": "UWA",
+      "conference": "IRA",
+      "website": "https://gohuskies.com/sports/mens-rowing",
+      "aliases": ["Washington", "UW", "University of Washington", "Washington Huskies"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440011",
+      "name": "University of California",
+      "abbreviation": "CAL",
+      "conference": "IRA",
+      "website": "https://calbears.com/sports/mens-rowing",
+      "aliases": ["Cal", "California", "UC Berkeley", "Cal Bears", "California Golden Bears"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440012",
+      "name": "Stanford University",
+      "abbreviation": "STA",
+      "conference": "IRA",
+      "website": "https://gostanford.com/sports/mens-rowing",
+      "aliases": ["Stanford", "Stanford University", "Stanford Cardinal", "STAN"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440013",
+      "name": "Massachusetts Institute of Technology",
+      "abbreviation": "MIT",
+      "conference": "other",
+      "website": "https://mitathletics.com/sports/mcrew",
+      "aliases": ["MIT", "Massachusetts Institute of Technology", "MIT Engineers"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440014",
+      "name": "Georgetown University",
+      "abbreviation": "GEO",
+      "conference": "IRA",
+      "website": "https://guhoyas.com/sports/mens-rowing",
+      "aliases": ["Georgetown", "Georgetown University", "Georgetown Hoyas", "GTWN"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440015",
+      "name": "US Naval Academy",
+      "abbreviation": "NAVY",
+      "conference": "IRA",
+      "website": "https://navysports.com/sports/mens-rowing",
+      "aliases": ["Navy", "Naval Academy", "US Naval Academy", "USNA", "Navy Midshipmen"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440016",
+      "name": "Northeastern University",
+      "abbreviation": "NEU",
+      "conference": "other",
+      "website": "https://gonu.com/sports/mens-rowing",
+      "aliases": ["Northeastern", "Northeastern University", "Northeastern Huskies", "NE"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440017",
+      "name": "Boston University",
+      "abbreviation": "BU",
+      "conference": "other",
+      "website": "https://bu.edu/athletics",
+      "aliases": ["Boston University", "BU Terriers"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440018",
+      "name": "Syracuse University",
+      "abbreviation": "SYR",
+      "conference": "IRA",
+      "website": "https://cuse.com/sports/mens-rowing",
+      "aliases": ["Syracuse", "Syracuse University", "Syracuse Orange"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440019",
+      "name": "University of Wisconsin",
+      "abbreviation": "WIS",
+      "conference": "IRA",
+      "website": "https://uwbadgers.com/sports/mens-rowing",
+      "aliases": ["Wisconsin", "UW-Madison", "University of Wisconsin", "Wisconsin Badgers"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440020",
+      "name": "Ohio State University",
+      "abbreviation": "OSU",
+      "conference": "IRA",
+      "website": "https://ohiostatebuckeyes.com/sports/mens-rowing",
+      "aliases": ["Ohio State", "OSU", "Ohio State University", "Ohio State Buckeyes"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655441001",
+      "name": "Harvard University Lightweight",
+      "abbreviation": "HVD-LW",
+      "conference": "EARC",
+      "website": "https://gocrimson.com/sports/mens-lightweight-rowing",
+      "aliases": ["Harvard Lightweight", "Harvard LW", "Harvard Crimson LW", "Harvard Lt", "HVD LW", "Harvard (LW)"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655441002",
+      "name": "Yale University Lightweight",
+      "abbreviation": "YLE-LW",
+      "conference": "EARC",
+      "website": "https://yalebulldogs.com/sports/mens-rowing",
+      "aliases": ["Yale Lightweight", "Yale LW", "Yale Bulldogs LW", "Yale Lt", "YLE LW", "Yale (LW)"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655441003",
+      "name": "Princeton University Lightweight",
+      "abbreviation": "PRI-LW",
+      "conference": "EARC",
+      "website": "https://goprincetontigers.com/sports/mlr",
+      "aliases": ["Princeton Lightweight", "Princeton LW", "Princeton Tigers LW", "Princeton Lt", "PRI LW", "Princeton (LW)"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655441004",
+      "name": "University of Pennsylvania Lightweight",
+      "abbreviation": "UPE-LW",
+      "conference": "EARC",
+      "website": "https://pennathletics.com/sports/mens-crew",
+      "aliases": ["Penn Lightweight", "UPenn LW", "Penn LW", "Pennsylvania LW", "Penn Quakers LW", "UPE LW", "Penn (LW)"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655441005",
+      "name": "Dartmouth College Lightweight",
+      "abbreviation": "DAR-LW",
+      "conference": "EARC",
+      "website": "https://dartmouthsports.com/sports/rowing",
+      "aliases": ["Dartmouth Lightweight", "Dartmouth LW", "Dartmouth Big Green LW", "Dartmouth Lt", "DAR LW", "Dartmouth (LW)"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655441006",
+      "name": "MIT Lightweight",
+      "abbreviation": "MIT-LW",
+      "conference": "IRA",
+      "website": "https://mitathletics.com/sports/mcrewlt",
+      "aliases": ["MIT Lightweight", "MIT LW", "MIT Engineers LW", "MIT Lt", "MIT (LW)"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655441007",
+      "name": "Georgetown University Lightweight",
+      "abbreviation": "GEO-LW",
+      "conference": "IRA",
+      "website": "https://guhoyas.com/sports/mens-rowing",
+      "aliases": ["Georgetown Lightweight", "Georgetown LW", "Georgetown Hoyas LW", "Georgetown Lt", "GEO LW", "Georgetown (LW)"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655441008",
+      "name": "US Naval Academy Lightweight",
+      "abbreviation": "NAVY-LW",
+      "conference": "IRA",
+      "website": "https://navysports.com/sports/mens-lightweight-rowing",
+      "aliases": ["Navy Lightweight", "Naval Academy LW", "Navy LW", "USNA LW", "Navy Midshipmen LW", "NAVY LW", "Navy (LW)"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655441009",
+      "name": "Columbia University Lightweight",
+      "abbreviation": "COL-LW",
+      "conference": "EARC",
+      "website": "https://gocolumbialions.com/sports/lightweight-rowing",
+      "aliases": ["Columbia Lightweight", "Columbia LW", "Columbia Lions LW", "Columbia Lt", "COL LW", "Columbia (LW)"]
+    }
+  ]
+}

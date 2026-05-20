@@ -1,0 +1,91 @@
+{
+  "version": "1.0",
+  "season": 2026,
+  "boat_class": "V1",
+  "num_races": 1,
+  "num_teams": 8,
+  "config": {
+    "normalize_margins": true,
+    "discount_large_gaps": false,
+    "gap_threshold_pct": 5.0,
+    "gap_threshold_seconds": 5.0,
+    "gap_discount_factor": 0.2,
+    "discount_bad_conditions": false,
+    "min_races_threshold": 3,
+    "reference_time_seconds": 335.0
+  },
+  "rankings": [
+    {
+      "rank": 1,
+      "team": "HVD",
+      "rating": 2.5719,
+      "rating_at_ref_seconds": 8.62,
+      "races": 1,
+      "low_sample": true,
+      "note": "Fewer than 3 races \u2014 rating unreliable"
+    },
+    {
+      "rank": 2,
+      "team": "YLE",
+      "rating": 1.6627,
+      "rating_at_ref_seconds": 5.57,
+      "races": 1,
+      "low_sample": true,
+      "note": "Fewer than 3 races \u2014 rating unreliable"
+    },
+    {
+      "rank": 3,
+      "team": "PRI",
+      "rating": 1.2131,
+      "rating_at_ref_seconds": 4.06,
+      "races": 1,
+      "low_sample": true,
+      "note": "Fewer than 3 races \u2014 rating unreliable"
+    },
+    {
+      "rank": 4,
+      "team": "DAR",
+      "rating": 0.516,
+      "rating_at_ref_seconds": 1.73,
+      "races": 1,
+      "low_sample": true,
+      "note": "Fewer than 3 races \u2014 rating unreliable"
+    },
+    {
+      "rank": 5,
+      "team": "COR",
+      "rating": -0.2033,
+      "rating_at_ref_seconds": -0.68,
+      "races": 1,
+      "low_sample": true,
+      "note": "Fewer than 3 races \u2014 rating unreliable"
+    },
+    {
+      "rank": 6,
+      "team": "BRN",
+      "rating": -1.0005,
+      "rating_at_ref_seconds": -3.35,
+      "races": 1,
+      "low_sample": true,
+      "note": "Fewer than 3 races \u2014 rating unreliable"
+    },
+    {
+      "rank": 7,
+      "team": "COL",
+      "rating": -1.8756,
+      "rating_at_ref_seconds": -6.28,
+      "races": 1,
+      "low_sample": true,
+      "note": "Fewer than 3 races \u2014 rating unreliable"
+    },
+    {
+      "rank": 8,
+      "team": "UPE",
+      "rating": -2.8842,
+      "rating_at_ref_seconds": -9.66,
+      "races": 1,
+      "low_sample": true,
+      "note": "Fewer than 3 races \u2014 rating unreliable"
+    }
+  ]
+}
